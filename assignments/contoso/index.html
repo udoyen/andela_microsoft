@@ -2,31 +2,37 @@
 <html lang="en-US">
     <head>
         <title>Contoso News</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        <script src="js/script.js"></script>
+
+        <!-- <script src="js/script.js"></script> -->
     </head>
-    <body>
+    <body class="container">
         <header>
             <h1>Contoso News</h1>
             <h2>On Time, On Topic</h2>
         </header>
-        <section id="carousel">
-            <figure class="visible">
-                <img src="img/efficient_cars.png" alt="Efficient Cars">
-                <figcaption>2017 Cars Promise to be More Fuel Efficient Than Ever</figcaption>
-            </figure>
-            <figure>
-                <img src="img/natural_disaster.png" alt="Natural Disaster">
-                <figcaption>Hurricane Threatens to Touch Down on the East Coast This Weekend</figcaption>                    
-            </figure>
-            <figure>
-                <img src="img/health_records.png" alt="Health Records">
-                <figcaption>Many Doctors are Moving to Digital Health Records This Year</figcaption>   
-            </figure>
+        <section class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <figure class="active item">
+                    <img src="img/efficient_cars.png" alt="Efficient Cars">
+                    <figcaption class="carousel-caption">2017 Cars Promise to be More Fuel Efficient Than Ever</figcaption>
+                </figure>
+                <figure class="item">
+                    <img src="img/natural_disaster.png" alt="Natural Disaster">
+                    <figcaption class="carousel-caption">Hurricane Threatens to Touch Down on the East Coast This Weekend</figcaption>                    
+                </figure>
+                <figure class="item">
+                    <img src="img/health_records.png" alt="Health Records">
+                    <figcaption class="carousel-caption">Many Doctors are Moving to Digital Health Records This Year</figcaption>   
+                </figure>
+            </div>            
         </section>
-        <main>
+        <main class="row">
             <h3>Latest Articles</h3>
-            <article>
+            <article class="well col-md-4">
                 <time datetime="16-01-2016">Friday, Jan 16</time>
                 <h4>International Story</h4>
                 <p>
@@ -39,7 +45,7 @@
                     <a href="#" target="_blank">Read More...</a>
                 </p>
             </article>
-            <article>
+            <article class="well col-md-4">
                 <time datetime="14-01-2016">Wednesday, Jan 14</time>
                 <h4>Finance Story</h4>
                 <p>
@@ -68,7 +74,7 @@
                 
                 </p>
             </article>
-            <article>
+            <article class="well col-md-4">
                 <time datetime="14-01-2016">Wednesday, Jan 14</time>
                 <h4>Technology Story</h4>
                 <p>
@@ -83,9 +89,10 @@
             </article>
             
         </main>
-        <h4>Sign Up For Our Emails</h4>
-        <summary>
-            <form action="">
+        
+        <summary class="panel panel-default col-md-8 col-md-offset-2">
+            <div class="panel-heading">Sign Up For Our Emails</div>
+            <form action="" class="form-horizontal panel-body">
                 <label for="">Email Address: </label>
                 <input type="text" name="emailAddress" id="" required="required">
                 <label for="">Delivery Preference: </label>
