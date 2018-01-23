@@ -1,0 +1,25 @@
+h1 {
+    color: red;
+    background-color: lightgreen;
+    border: 12px solid violet;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+h2 {
+    color: brown;
+}
+
+p, h1, h2 {
+    font-family: cursive;
+}
+
+
+img {
+    box-shadow: 10px 10px 15px grey;
+}
+
+p, img {
+    margin-left: 50px;
+}
