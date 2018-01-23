@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Events</title>
+        <script type="text/javascript">
+            // version 1 use separate callback function
+            /* addEventListener('click', processClick);
+
+            function processClick(evt) {
+                alert("click");
+            } */
+
+            // version 2
+            /* addEventListener('click', function(evt) {
+                alert("hello");
+
+            });*/
+
+            window.onclick = function(evt) {
+              alert("hello");
+            };
+
+            window.onclick = processClick;
+
+            function processClick(evt) {
+                alert("hello");
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <button onclick="processClick();">Click Me!</button>
+        <button id="getMe">Click Me!</button>
+        <script>
+            let b = document.querySelector("#getMe");
+
+            b.addEventListener('clcik', function(evt) {
+                alert("Hello");
+            })
+
+        </script>
+
+    </body>
+</html>

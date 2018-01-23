@@ -1,7 +1,7 @@
 navigator.mediaDevices.getUserMedia({
     audio: false,
     video: true
-}).then (function(stream) {
+}).then(function (stream) {
     var video = document.createElement('video');
     document.body.appendChild(video);
     video.src = URL.createObjectURL(stream);
@@ -10,6 +10,8 @@ navigator.mediaDevices.getUserMedia({
 
 
 // switch statment
+
+var value = "caller";
 
 var name = "";
 

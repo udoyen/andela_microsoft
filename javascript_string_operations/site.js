@@ -71,10 +71,10 @@ function init() {
 }
 
 function changeStyle() {
-  console.log("add border");
-  divElem.style.border = "5px dashed purple";
-  divElem.style.padding = "10px";
-  divElem.style.backgroundColor = "lightGreen";
+    console.log("add border");
+    divElem.style.border = "5px dashed purple";
+    divElem.style.padding = "10px";
+    divElem.style.backgroundColor = "lightGreen";
     divElem.style.backgroundColor = 'blue';
 }
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Javascript Projects</title>
+        <script src="js/site.js" type="text/javascript"></script>
+    </head>
+    <body onload="setEquationValues();">
+        <h1>Equation Solver</h1>
+        <h3>ax<sup>2</sup>+bx+c</h3>
+        <section id="inputValuesBox">
+            <label for="aValue">a: </label>
+            value: <input type="number" id="aValue" value="1" min="1" onchange="setEquationValues();">
+            <p></p>
+            <label for="bValue">b: </label>
+            value: <input type="number" id="bValue" value="0" onchange="setEquationValues();">
+            <p></p>
+            <label for="cValue">c: </label>
+            value: <input type="number" id="cValue" value="0" onchange="setEquationValues();">
+            <p></p>
+        </section>
+        <sectio id="resultBox">
+           <h4>Equation to solve: <em><span id="a"></span>x<sup>2</sup>+<span id="b"></span>x+<span id="c"></span></em></h4>
+            <p></p>
+            <p id="deltaVal"></p>
+            <button onclick="getRoot();">Solve Equation</button> &nbsp; <p class="root" id="minusX"></p><p class="root" id="plusX"></p>
+
+        </sectio>
+    </body>
+</html>
