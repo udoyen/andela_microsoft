@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<!--
     <button onclick="displayListOfCheckedItems();">Show Checked items</button>
     <button onclick="reset();">Reset list</button>
     <br>
@@ -30,11 +31,12 @@
             <input type="checkbox" name="fruit" value="grapes"> Grapes
         </li>
     </ul>
-    <!--
+-->
+    
     <h1>My home page</h1>
     <p>Hi! Welcome to my Home Page! My name is Michel Buffa, I'm a professor at the University of Nice, in France, and I'm also the author of two MOOCS about HTML5 on W3Cx.
     </p>
-    <button onclick="document.querySelector('box').classList.toggle('expert');">
+    <button onclick="document.querySelector('#box').classList.toggle('expert');">
   Toggle expert mode
 </button>
     <div id="box">
@@ -44,7 +46,7 @@
         <label for="postpone">Postpone: <input type="checkbox" id="postpone" /></label>
         <label for="lang">Lang: <input type="text" id="lang" /></label>
     </div>
--->
+
 </body>
 
 </html>

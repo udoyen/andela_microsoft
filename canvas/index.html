@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Canvas</title>
+    <script src="js/site.js"></script>
+    <script>
+        function init() {
+            var b = document.querySelector("#myButton");
+            b.addEventListener('click', function (evt) {
+                alert("Button clicked");
+                alert(evt.target);
+            });
+            window.onmousedown = function (evt) {
+                document.body.innerHTML += "button = " + evt.button + "<br>";
+            }
+        }
+    </script>
+</head>
+
+<body onload="init();">
+    <button id="myButton">Click me!</button>
+    <!--
+    <canvas id="myCanvas" width="200" height="500"> Your browser doesn't support this feature. </canvas>
+    <button id="myButton">Click me!</button>
+-->
+    <!--
+    <script>
+        var b = document.querySelector("#myButton");
+        b.addEventListener('click', function (evt) {
+            alert("Button clicked");
+        });
+    </script>
+-->
+</body>
+
+</html>

@@ -1,13 +1,17 @@
-/*
 #box.expert > #help,
 #box.expert > label[for="postpone"],
 #box.expert > label[for="lang"] {
     display: none;
 }
-*/
 
+/*
 .checked {
     border: 2px dashed #000;
     background-color: green;
     color:yellow;
 }
+*/
+/*
+body {
+    color: aliceblue;
+}*/
