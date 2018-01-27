@@ -4,16 +4,12 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "typescript",
+            "label": "echo",
             "type": "shell",
             "command": "tsc",
             "args": [
-                "ts/script.ts",
-                "ts/example.ts",
-                "ts/myclass.ts"
+                "namespace.ts"
             ],
-            "isBackground": true,
-            "problemMatcher": "$tsc",
             "group": {
                 "kind": "build",
                 "isDefault": true

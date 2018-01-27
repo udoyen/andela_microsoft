@@ -12,4 +12,5 @@ class Alert {
 function showAlert() {
     var alertManager = new Alert();
     alertManager.showDialog();
+    const make = 3;
 }

@@ -14,4 +14,5 @@ var Alert = (function () {
 function showAlert() {
     var alertManager = new Alert();
     alertManager.showDialog();
+    var make = 3;
 }
