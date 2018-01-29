@@ -1,0 +1,55 @@
+/*
+
+    light yellow: #ffff99
+    medium yellow: #ffcc00
+    orange: #ff6600
+
+Here are the fonts used above:
+
+    Helvetica
+    Impact
+    Courier New
+
+
+*/
+    body {
+
+        background-color: #ffff99;
+        padding: 20px;
+     
+    }
+     
+    h1 {
+     color: #ff6600;
+     border: solid #ff6600;
+     padding: 10px;
+    }
+     
+     
+    h2 {
+     color: #ffff99;
+     background-color: #ff6600;
+     padding: 10px;
+
+    }
+     
+    ol {
+     background-color: #ffcc00;
+     padding-top: 10px;
+     padding-bottom: 10px;
+
+    }
+     
+    li {
+     color: #ffff99;
+     
+
+    }
+     
+    p {
+        border: #ffcc00;
+        border-style: dotted;
+        padding: 10px;
+
+     
+    }
