@@ -1,0 +1,67 @@
+/****************************
+Featured Modules
+*****************************/
+
+.media-featured,
+.media-featured-item {
+  overflow: hidden;
+}
+
+.media-featured-item {
+  height: 204px;
+  max-height: 204px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.media-featured-item button {
+  height: 50px;
+  max-height: 50px;
+  min-height: 50px;
+  padding-right: 35px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  border-radius: 0px;
+}
+
+.media-featured-item img {
+  display: block;
+  width: 100%;
+}
+
+.media-featured-body {
+  background: $white;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @include extra-small-only {
+      text-align: left;
+  }
+}
+
+#featured-btn-1 {
+  @include button-color($featured-button-1);
+}
+
+#featured-btn-2 {
+  @include button-color($featured-button-2);
+}
+
+#featured-btn-3 {
+  @include button-color($featured-button-3);
+}
+
+#first-box {
+    @include top-border($green);
+}
+
+#second-box {
+    @include top-border($orange);
+}
+
+#third-box {
+    @include top-border($twine);
+}

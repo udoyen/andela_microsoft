@@ -1,0 +1,75 @@
+$gutter: 30px;
+$gutter-margin: ($gutter / 2);
+
+/***************************
+****************************
+Layout Styles
+****************************
+***************************/
+/* Content Container*/
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1170px;
+}
+/* Row */
+.row {
+  // margin-right: -15px;
+  // margin-left: -15px;
+  margin-right: (-$gutter-margin);
+  margin-left: (-$gutter-margin);
+}
+/* Row Clear Float*/
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Media Query excludes extra small devices and includes small and above */
+[class*="col-"] {
+  width: 100%;
+  // padding-left: 15px;
+  // padding-right: 15px;
+  padding-left: $gutter-margin;
+  padding-right: $gutter-margin;
+}
+
+@include small-and-above {
+  [class*="col-1"] {
+    float: left;
+  }
+
+  .col-1-12 {
+    width: (100 / 12);
+  }
+  .col-1-6 {
+    width: (100% / 6);
+  }
+
+  .col-2-3 {
+    width: (100% / 1.5);
+  }
+
+  .col-1-3 {
+    width: (100% / 3);
+  }
+
+  .col-1-2 {
+    width: (100% / 2);
+  }
+}
+
+.pull-right-sm {
+  @include small-and-above {
+    float: right;
+  }
+}
+
+.remove-gutter-xs {
+  @include extra-small-only {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}

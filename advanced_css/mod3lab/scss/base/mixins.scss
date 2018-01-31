@@ -1,0 +1,15 @@
+@mixin circle($width) {
+    width: $width;
+    height: $width;
+    border-radius: $width/2;
+}
+
+@mixin button-color($color-name) {
+    background: $color-name;
+    border-color: $color-name;
+
+}
+
+@mixin top-border($color) {
+    border-top: 4px solid $color;
+}
