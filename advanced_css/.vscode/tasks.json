@@ -9,7 +9,7 @@
             "command": "node-sass",
             "args": [
                 "mod4lab/scss/styles.scss",
-                "mod4lab/css/style.css"
+                "mod4lab/css/styles.css"
             ],
             "group": {
                 "kind": "build",

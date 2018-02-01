@@ -13,15 +13,15 @@ $mq-2: 62em !default;
 // Mixin for device small and above
 @mixin small-and-above {
     @media only screen and (min-width : $mq-1) {
-        @content
+        @content;
     }
 }
 
-/* Mixin for screen size of 62em and above */
+/*  Mixin for screen size of 62em and above */
 
 @mixin medium-and-above {
     @media only screen and (min-width : $mq-2) {
-        @content
+        @content;
     }
 }
 
