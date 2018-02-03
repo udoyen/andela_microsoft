@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Verdana;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            color: darkblue;
+        }
+        
+        .rating-circle {
+            height: 2em;
+            width: 2em;
+            border: .1em solid black;
+            border-radius: 1.1em;
+            display: inline-block;
+            margin: 0;
+            padding: .1em;
+        }
+        
+        .rating-hover {
+            background-color: yellow;
+        }
+        
+        .rating-chosen {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contoso Web Developer Conference</h1>
+    <h2>Finding elements using jQuery</h2>
+    <div>This session is about identifying elements using jQuery methods and selectors. </div>
+    <h3>Rate this session</h3>
+    <div id="rating-container" max-value="5">
+        <div class="rating-circle"></div>
+        <div class="rating-circle"></div>
+        <div class="rating-circle"></div>
+        <div class="rating-circle"></div>
+        <div class="rating-circle"></div>
+    </div>
+    <div>
+        <label for="max-value">Enter max value:</label>
+        <input type="text" id="max-value" />
+        <button type="button" id="update-max-value">Update max value</button>
+    </div>
+    <button type="button" id="save-rating">Save rating</button>
+    <div id="output"></div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //by default show 5 circles to user.
+            //loop through and add 5 circles
+            for (i = 0; i < 5; i++) {
+                //append rating circles to parent div
+                $('#rating-container').append('<div class="rating-circle"></div>')
+            }
+            //end of loop.
+            //if update max button is clicked retrive user input.
+            $('#update-max-value').on('click', function () {
+                //1st get the user input
+                var number = $('#max-value').val();
+                //update the maximum value
+                $('#rating-container').attr('max-value', '5');
+                //clear the rating container
+                $('#rating-container').empty();
+                //loop through again and update the container
+                for (i = 0; i < number; i++) {
+                    $('#rating-container').append('<div class="rating-circle"></div>')
+                }
+            });
+            //variable to save class when clicked. so as to know which class was clicked
+            var sav;
+            //picking the parent div (having id rating container)
+            //mouse enter construct
+            $('#rating-container').on('mouseenter', '.rating-circle', function () {
+                var th = $(this);
+                //clear current class
+                clear(th);
+                //adding color to the particular class
+                $(this).addClass('rating-hover');
+                //adding to the previous elements
+                $(this).prevAll().addClass('rating-hover');
+            });
+            //mouse leave construct
+            $('#rating-container').on('mouseleave', '.rating-circle', function () {
+                //removing the color
+                $('#rating-container > .rating-circle ').removeClass('rating-hover');
+                //check if any of the click was trigger den replace the class
+                $(sav).addClass('rating-chosen');
+                //adding to the previous elements
+                $(sav).prevAll().addClass('rating-chosen');
+            });
+            //handling the click of circles
+            $('#rating-container').on('click', '.rating-circle', function () {
+                sav = $(this);
+                //adding color to the particular class
+                $(this).addClass('rating-chosen');
+                //adding to the previous elements
+                $(this).prevAll().addClass('rating-chosen');
+            });
+            //function to clear classes
+            function clear(clas) {
+                $(clas).removeClass('rating-chosen');
+                $(clas).prevAll().removeClass('rating-chosen');
+                $(clas).nextAll().removeClass('rating-chosen');
+            }
+            //end of function
+            //handling click to save rating
+            $('#save-rating').click(function () {
+                //{ value: 4, maxValue: 5}
+                //retriving the max value and the actual value
+                var value = $('.rating-chosen').length;
+                var maxValue = $('.rating-circle').length;
+                //creating them into an object
+                var rate = new Object();
+                rate.value = value;
+                rate.maxValue = maxValue;
+                //passing to the server and retriving the new object.
+                $.post('http://jquery-edx.azurewebsites.net/api/Rating', rate, function (result) {
+                    $('#output').text(result.message);
+                });
+            });
+        });
+        //          //        $(function () {
+        //            //On mouse hover just play with the background color for all the circles
+        //            $('.rating-circle').hover(function () {
+        //                var element = $(this);
+        //                element.attr('style', 'background-color: yellow;');
+        //                element.prevAll().attr('style', 'background-color: yellow;');
+        //                element.nextAll().attr('style', 'background-color: white;');
+        //            });
+        //            //On mouse out simply remove the style attribute for all circles.
+        //            $('.rating-circle').mouseout(function () {
+        //                $('.rating-circle').removeAttr('style');
+        //            });
+        //            //On mouse click remove the applied style add the class to set the background color as green
+        //            $('.rating-circle').click(function () {
+        //                $('.rating-circle').removeAttr('style');
+        //                var element = $(this);
+        //                element.addClass('rating-chosen');
+        //                element.prevAll().addClass('rating-chosen');
+        //                element.nextAll().removeClass('rating-chosen');
+        //            });
+        //        });
+        //        var last;
+        //        $(function () {
+        //            $('.rating-circle').click(function () {
+        //                $('#rating-container').children().removeClass('rating-chosen');
+        //                $(this).addClass('rating-chosen').prevAll().addClass('rating-chosen');
+        //                last = this;
+        //            }).hover(function () {
+        //                $('#rating-container').children().removeClass('rating-chosen');
+        //                $(this).addClass('rating-hover').prevAll().addClass('rating-hover');
+        //            }).mouseleave(function () {
+        //                $(this).removeClass('rating-hover').prevAll().removeClass('rating-hover');
+        //                $(last).addClass('rating-chosen').prevAll().addClass('rating-chosen');
+        //            });
+        //        });
+    </script>
+</body>
+
+</html>

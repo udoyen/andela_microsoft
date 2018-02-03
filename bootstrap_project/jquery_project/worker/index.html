@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 26px;
+            font-family: Verdana;
+        }
+        
+        div {
+            margin-bottom: 3em;
+        }
+        
+        .btn {
+            font-size: 1em;
+        }
+        
+        .form-control {
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="message" class="form-control">
+        <button class="btn" id="send-message" disabled>Send Message</button>
+    </div>
+    <ul id="messages"></ul>
+    <script src="node_modules/jquery/dist/jquery.min.js">
+    </script>
+    <script>
+        // check if worker exist in browser
+        if (Worker == null) {
+            alert('Worker not supported!');
+        }
+        else {
+            var worker = new Worker('worker.js');
+            worker.addEventListener('message', function (e) {
+                if (e.data === "READY") {
+                    $('#messages').append('<li>Worker Ready!</li>');
+                    $('#send-message').removeAttr('disabled').click(function () {
+                        worker.postMessage($('#message').val());
+                    });
+                    $('#message').focus();
+                }
+                else {
+                    $('#messages').append('<li>' + e.data + '</li>');
+                    $('#message').val('').focus();
+                }
+            });
+            // inside of HTML file another implementation
+            var worker = new Worker('worker.js');
+            worker.addEventListener('message', function (e) {
+                if (e.data === 'STARTED') {
+                    // worker has been started
+                    // sample: update the screen to display worker started
+                    $('#output').append('<div>Worker started</div>');
+                }
+                else if (e.data === 'STOPPED') {
+                    // worker has been stopped
+                    // cleanup work (if needed)
+                    // sample: update the screen to display worker stopped
+                    $('#output').append('<div>Worker stopped</div>');
+                }
+                else {
+                    // Normal message. Act upon data as needed
+                    // Sample: display data on screen
+                    $('#output').append('<div>' + e.data + '</div>');
+                }
+            });
+            // When you're ready, send the start message
+            worker.postMessage('START');
+            // Send data as needed
+            worker.postMessage('sample data');
+            // Stop worker when you're done
+            worker.postMessage('STOP');
+        }
+        // load worker
+    </script>
+</body>
+
+</html>

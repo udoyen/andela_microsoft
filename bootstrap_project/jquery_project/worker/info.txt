@@ -1,0 +1,1 @@
+The process of converting an in memory object to a string representation, including JSON, is known as serialization. 

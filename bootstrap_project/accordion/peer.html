@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Accordion Lab</title>
+    <link rel="stylesheet" href="accordion/lib/bootstrap/css/bootstrap.min.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1> Submit Album </h1> </div>
+            <div class="panel-group" id="submitAlbumAccordion" role="tablist" aria-multiselectable="true">
+                <!-- Album title and Artist -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="AlbumTitleAndArtist">
+                        <h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#submitAlbumAccordion" href="#albumContent" aria-expanded="true" aria-controls="collapseOne">
+Album Title and Artist
+</a>
+</h4> </div>
+                    <div id="albumContent" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="AlbumTitleAndArtist">
+                        <div class="panel-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+                    </div>
+                </div>
+                <!-- Track Information -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="trackInformationHeading">
+                        <h4 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#submitAlbumAccordion" href="#trackInformation" aria-expanded="false" aria-controls="trackInformation">
+Track Information
+</a>
+</h4> </div>
+                    <div id="trackInformation" class="panel-collapse collapse" role="tabpanel" aria-labelledby="trackInformationHeading">
+                        <div class="panel-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+                    </div>
+                </div>
+                <!-- Expert Review -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="expertReviewHeading">
+                        <h4 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#submitAlbumAccordion" href="#expertReview" aria-expanded="false" aria-controls="expertReview">
+Expert Review
+</a>
+</h4> </div>
+                    <div id="expertReview" class="panel-collapse collapse" role="tabpanel" aria-labelledby="expertReviewHeading">
+                        <div class="panel-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="accordion/lib/jquery/jquery-2.1.3.min.js"><\/script>')
+    </script>
+    <script src="accordion/lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

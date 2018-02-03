@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+        
+        div {
+            margin-top: 8px;
+        }
+        
+        body {
+            font-family: verdana;
+        }
+    </style>
+</head>
+
+<body>
+    <nav> 
+       <a>Question1</a> 
+       <a>Question1</a>
+        <div>
+        <a>DO NOT SELECT</a>
+        </div>
+    </nav>
+    <div>
+        <div class='item'>Question2</div> 
+        <span class='item'>Question2</span>
+        <div class='item-group'>DO NOT SELECT</div>
+        <div class='demo'>Question3</div> 
+        <span class='demo'>DO NOT SELECT</span>
+        <div class='demo'>Question3</div>
+    </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //            $('#target').children().attr('style', 'color:red');
+            //            $('#target').find('*').attr('style', 'color:red');
+            //            $('#demo').parent().attr('style', 'color:purple');
+            //            $('#target').addClass('red');
+            //            $('#target').addClass('blue');
+            //            $('#target').prevUntil('.stop').attr('style', 'color:purple');
+            //            $('#target').nextUntil('.start').attr('style', 'color:green');
+            $('div.demo').addClass('highlight');
+        });
+    </script>
+</body>
+
+</html>

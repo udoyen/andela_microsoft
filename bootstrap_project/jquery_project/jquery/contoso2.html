@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Verdana;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            color: darkblue;
+        }
+        
+        .rating-circle {
+            height: 2em;
+            width: 2em;
+            border: .1em solid black;
+            border-radius: 1.1em;
+            display: inline-block;
+            margin: 0;
+            padding: .1em;
+        }
+        
+        .rating-hover {
+            background-color: yellow;
+        }
+        
+        .rating-chosen {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contoso Web Developer Conference</h1>
+    <h2>Finding elements using jQuery</h2>
+    <div>This session is about identifying elements using jQuery methods and selectors. </div>
+    <h3>Rate this session</h3>
+    <div id="rating-container" max-value="5">
+        <div class="rating-circle"></div>
+        <div class="rating-circle"></div>
+        <div class="rating-circle"></div>
+        <div class="rating-circle"></div>
+        <div class="rating-circle"></div>
+    </div>
+    <div>
+        <label for="max-value">Enter max value:</label>
+        <input type="text" id="max-value" />
+        <button type="button" id="update-max-value">Update max value</button>
+    </div>
+    <button type="button" id="save-rating">Save rating</button>
+    <div id="output"></div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var uClicked = false; // used to check if an item was clicked
+            var index; // used to record the 
+            // Add a hover event to every child of the rating-container
+            var container = $('#rating-container');
+            // Save ratings button event
+            $('#save-rating').click(function (e) {
+                // If no circle was clicked alert the user
+                if (uClicked) {
+                    // Get the clicked circle index
+                    // and the mav value
+                    var ratings = {
+                        value: index + 1
+                        , maxValue: $('#rating-container').attr('max-value')
+                    }
+                    $.post('http://jquery-edx.azurewebsites.net/api/Rating', ratings).done(function (data) {
+                        $('#output').text(data.message);
+                    }).fail(function () {
+                        $('#output').text('An Error Occured!');
+                    });
+                }
+                else {
+                    $('#output').text('Please select a rating!');
+                }
+            });
+            // Add click event to button
+            $('#update-max-value').on('click', function () {
+                // Get the value of the text box
+                let newMaxVal = $('input[id=max-value]').val();
+                // Set the parent containers max-value
+                $('#rating-container').attr('max-value', newMaxVal);
+                // Empty the rating circles
+                $('#rating-container').empty();
+                for (var i = 1; i <= newMaxVal; i++) {
+                    // Add a new rating circle to the current
+                    $('#rating-container').append(' <div class="rating-circle"></div>');
+                }
+            });
+            $('#rating-container').children().each(function () {
+                $('#rating-container').on('mouseover', '.rating-circle', function (evt) {
+                    // If a click event occured remove the added class
+                    if (uClicked) {
+                        // Get element that was clicked
+                        let dClicked = $(container.children().get(index));
+                        $(dClicked).removeClass('rating-chosen').prevAll().removeClass('rating-chosen');
+                    }
+                    $(this).addClass('rating-hover').prevAll().addClass('rating-hover');
+                }).on('mouseout', '.rating-circle', function (evt) {
+                    // Return the color for the already clicked items
+                    if (uClicked) {
+                        let dClicked = $(container.children().get(index));
+                        $(dClicked).addClass('rating-chosen').prevAll().addClass('rating-chosen');
+                    }
+                    //Remove the added rating-hover class
+                    $(this).removeClass('rating-hover').prevAll().removeClass('rating-hover');
+                }).on('click', '.rating-circle', function (evt) {
+                    // Get index of clicked div
+                    index = container.children().index($(this));
+                    // set the click boolean to true
+                    uClicked = true;
+                    $(this).addClass('rating-chosen').prevAll().addClass('rating-chosen');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
