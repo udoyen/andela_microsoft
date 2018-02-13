@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+th {
+    text-align: left;
+}
+
+thead > tr th > span {
+  display: none;
+}
