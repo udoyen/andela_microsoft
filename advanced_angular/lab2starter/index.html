@@ -12,8 +12,19 @@
 <body ng-controller="LabController as vm">
   <div class="container">
     <h1>Directives</h1>
-    <person person="vm.person" action="vm.show()"></person>
-  </div>
+    <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Nationality</th>
+            <th>Dates</th>
+            <th><span>None</span></th>
+          </tr>
+        </thead>
+        <tbody person="vm.person">
+        </tbody>
+    </table>
+</div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
   <script src="./app/app.js"></script>

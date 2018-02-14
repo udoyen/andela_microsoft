@@ -3,12 +3,14 @@ angular.module('app')
    function () {
       var vm = this;
 
+      vm.show = show;
+
       vm.person = {
         name: 'Samuel Clemens',
         penName: 'Mark Twain'
       };
 
-      vm.show = function () {
+      function show() {
          alert(JSON.stringify(vm.person));
       };
    }

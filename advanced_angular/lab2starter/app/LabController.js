@@ -2,6 +2,8 @@ angular.module('app').controller('LabController', [
   function() {
     var vm = this;
 
+    vm.show = show;
+
     vm.person = [{
         name: 'George Udosen',
         nationality: 'Nigerian',
@@ -28,10 +30,10 @@ angular.module('app').controller('LabController', [
         date: '1900-1940'
       }
 
-    ]
+    ];
 
-    vm.show = function () {
-      alert(JSON.stringify(vm.person.name));
+    function show(index) {
+      alert(JSON.stringify(vm.person[index].name));
     }
   }
 ]);
