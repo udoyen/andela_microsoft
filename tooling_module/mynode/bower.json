@@ -1,0 +1,22 @@
+{
+  "name": "george",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "george udosen"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/udoyen/andela_microsoft",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.9",
+    "moment": "^2.20.1",
+    "lodash": "^4.17.5"
+  }
+}
