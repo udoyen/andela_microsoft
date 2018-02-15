@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>Directives</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
 
 </head>
@@ -12,19 +13,19 @@
 <body ng-controller="LabController as vm">
   <div class="container">
     <h1>Directives</h1>
-    <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Nationality</th>
-            <th>Dates</th>
-            <th><span>None</span></th>
-          </tr>
-        </thead>
-        <tbody person="vm.person">
-        </tbody>
-    </table>
-</div>
+    <div class="row">
+      <div class="col-sm-12 head">
+        <div class="col-sm-3">Name</div>
+        <div class="col-sm-3">Nationality</div>
+        <div class="col-sm-3">Dates</div>
+        <div id="remove" class="col-sm-3">None</div>
+      </div>
+
+      <data person="vm.person" action="vm.show()">
+      </data>
+
+    </div>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
   <script src="./app/app.js"></script>

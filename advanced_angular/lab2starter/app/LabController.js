@@ -32,8 +32,8 @@ angular.module('app').controller('LabController', [
 
     ];
 
-    function show(index) {
-      alert(JSON.stringify(vm.person[index].name));
+    function show(person) {
+      alert(JSON.stringify(person.name));
     }
   }
 ]);

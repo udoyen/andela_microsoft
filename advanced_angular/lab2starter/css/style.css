@@ -13,3 +13,21 @@ th {
 thead > tr th > span {
   display: none;
 }
+
+.head {
+  padding: 15px;
+  font-weight: bold;
+}
+
+.head div {
+  padding: 10px;
+  text-align: left;
+}
+
+.col-sm-12 {
+  padding: 15px;
+}
+
+#remove {
+  display: none;
+}
