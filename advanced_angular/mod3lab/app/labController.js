@@ -4,6 +4,14 @@ angular.module("app").controller("LabController", [
 
     vm.alerts = [];
 
+    vm.dateOptions = {
+      showWeeks: false,
+      minDate: new Date()
+
+    };
+
+    vm.date = new Date();
+
     vm.addDanger = addDanger;
     vm.addWarning = addWarning;
     vm.dismissAlert = dismissAlert;

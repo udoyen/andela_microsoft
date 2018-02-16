@@ -49,10 +49,10 @@
         </div>
         <uib-alert class="alert-animation" ng-repeat="alert in vm.alerts" type="{{alert.type}}" close="vm.dismissAlert($index)">{{alert.text}}</uib-alert>
         <div style="display:inline-block; min-height:290px;">
-            <div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+            <div uib-datepicker ng-model="vm.date" class="well well-sm" datepicker-options="vm.dateOptions"></div>
         </div>
         <hr />
-        <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+        <pre>Selected date is: {{vm.date | date: 'fullDate'}}</pre>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
