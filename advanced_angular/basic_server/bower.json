@@ -1,0 +1,17 @@
+{
+  "name": "basic_server",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "george udosen <datameshprojects@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/udoyen/andela_microsoft",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
