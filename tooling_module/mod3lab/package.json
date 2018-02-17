@@ -1,0 +1,16 @@
+{
+  "name": "mod3lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.0.0",
+    "karma": "^2.0.0",
+    "karma-jasmine": "^1.1.1"
+  }
+}
